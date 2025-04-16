@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+{% load static %}
+
+<div>
+  <div class="card shadow-lg">
+    <div class="card-header" style="background-color: #e8f5e9; color: #2e7d32;">
+        <h2 class="text-center">🎯 Child Behaviour Analysis Result</h2>
+    </div>
+    <div class="card-body">
+      <h4 class="mb-4 text-success">✨ Prediction based on the following inputs:</h4>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Age of the Kiddo:</strong> {{age}}</li>
+        <li class="list-group-item"><strong>Daily Screen Time (in hours):</strong> {{screenTime}}</li>
+        <li class="list-group-item"><strong>Study Time Per Day (in hours):</strong> {{studyHours}}</li>
+        <li class="list-group-item"><strong>Number of Meals per Day:</strong> {{mealsPerDay}}</li>
+        <li class="list-group-item"><strong>Sleep Duration per Night (in hours):</strong> {{sleepHours}}</li>
+      </ul>
+
+      <div class="alert alert-info mt-4" role="alert">
+        <h5><strong>Predicted Behaviour:</strong> <span class="text-dark">{{out}}</span></h5>
+      </div>
+
+      <div class="text-center mt-4">
+        <a href="{% url 'childApp:child' %}" class="btn btn-outline-primary btn-lg">🔁 Try Another Prediction</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
